@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>绍兴市公交站台查询系统</title>
+
+<!-- Bootstrap -->
+<link href="css/bootstrap.css" rel="stylesheet">
+
+<!-- Include DingStudio SSO Support -->
+<script src="js/sso.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid"> 
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#defaultNavbar1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+      <a class="navbar-brand" href="#">绍兴市公交站台查询系统</a></div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="defaultNavbar1">
+      <ul class="nav navbar-nav">
+        <li><a href="./index.html">首页</a></li>
+        <li class="active"><a href="./StationOfBusQuery.html">功能<span class="sr-only">(current)</span></a></li>
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">联系我们<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="https://954759397.qzone.qq.com">QQ空间</a></li>
+            <li><a href="https://weibo.com/ddawx123">新浪微博</a></li>
+            <li><a href="https://github.com/ddawx123">GitHub</a></li>
+            <li class="divider"></li>
+            <li><a href="mailto:ding@dingstudio.cn">电子邮件</a></li>
+            <li class="divider"></li>
+            <li><a href="http://help.dingstudio.cn">帮助中心</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search" action="#" method="post" onsubmit="alert('该功能开发中，暂不可用。')">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="站内搜索">
+        </div>
+        <button type="submit" class="btn btn-default">搜索</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">欢迎Demo</a></li>
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">更多<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">智慧交通</a></li>
+            <li><a href="#">共享单车</a></li>
+            <li><a href="#">用户中心</a></li>
+            <li class="divider"></li>
+            <li><a href="#">注销</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+  <!-- /.container-fluid --> 
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="text-center col-md-12">
+      <div class="well"><strong>键入公交站台名称：</strong><input type="text" id="sname" placeholder="请在此键入站台名称" /><button type="button" class="btn btn-default" onclick="getStation()">查询</button></div>
+    </div>
+  </div>
+  <div id="StationInformation" class="row">
+    <!--
+     <div class="col-sm-4 text-center">
+      <h4>Line 11</h4>
+      <p>A站 - B站（数据待填充）</p>
+      <button type="button" class="btn btn-success btn-sm">显示详情</button>
+    </div>
+    <div class="text-center col-sm-4">
+      <h4>Line 22</h4>
+      <p>A站 - B站（数据待填充）</p>
+      <button type="button" class="btn btn-info btn-sm">显示详情</button>
+    </div>
+    <div class="text-center col-sm-4">
+      <h4>Line 33</h4>
+      <p>A站 - B站（数据待填充）</p>
+      <button type="button" class="btn btn-warning btn-sm">显示详情</button>
+    </div>
+    -->
+  </div>
+  <hr>
+  <div class="row">
+    <div class="text-center col-md-offset-0 col-md-12">
+      <h4>绍兴市智慧公共交通云平台_v1.0内测版</h4>
+      <p>Author: alone◎浅忆 Copyright &copy; 2012-2017 &middot; DingStudio Technology All Rights Reserved &middot; <a href="http://www.dingstudio.cn/">作者个人网站</a></p>
+    </div>
+  </div>
+  <hr>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery-1.11.3.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/bootstrap.js"></script>
+
+<!-- Include user application JavaScript plugins -->
+<script src="js/application.js"></script>
+<script>
+	function getUrlParam(key) {
+		var search = window.location.search;
+		if (!search) {
+			return '';
+		}
+		var reg = new RegExp('.*' + key + '=([^&]*)' + '.*');
+		return decodeURIComponent(search.replace(reg, '$1') || '');
+	}
+	if (getUrlParam('SName') != '') {
+		$('#sname').val(getUrlParam('SName'));
+		getStation();
+	}
+</script>
+</body>
+</html>
