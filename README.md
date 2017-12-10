@@ -9,4 +9,7 @@
 
 目前该项目尚未解决跨区公交的查询，所以暂时只能查询市公交集团（越城区）所隶属的所有线路。柯桥区、上虞区等地线路查询将在后续更新中逐步开放！
 
+        Demo访问地址：http://static2.dingstudio.cn/html/sxbus-smartsrv/index.html
+        Tip: 由于本系统尚未完全开发完毕，所以该系统默认绑定了SSO互通账户中心。使用前，请先使用互通账号登录（开放注册）
+
 ### &copy; 2012-2017 <a href="http://www.dingstudio.cn" target="_blank">DingStudio</a> Technology All Rights Reserved (Author: <a href="http://954759397.qzone.qq.com" target="_blank">David Ding [alone◎浅忆]</a>)
