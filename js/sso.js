@@ -54,8 +54,18 @@ function checkCookie(cookie_name) {
 		return false;
 	}
 }
+/**
+ * Single Sign On Application Check Process 单点登录检查入口
+ * @copyright 2016-2017 DingStudio All Rights Reserved
+ */
 function ssoInit() {
-    if (!checkCookie('dingstudio_sso') && !checkCookie('dingstudio_ssotoken')) {
+    var jsonp_login_stat = document.createElement('script');
+    jsonp_login_stat.setAttribute('src', 'https://passport.dingstudio.cn/sso/api?format=json&action=status&callback=loginQueryHandler');
+    document.getElementsByTagName('head')[0].appendChild(jsonp_login_stat);
+}
+function loginQueryHandler(data) {
+    if (data.data.authcode == 0) {
+        document.getElementsByTagName('body')[0].innerHTML = '需要登录';
         location.href = 'https://passport.dingstudio.cn/sso/login?returnUrl=' + btoa(encodeURIComponent(window.location.href));
     }
 }
