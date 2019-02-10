@@ -56,7 +56,7 @@ function checkCookie(cookie_name) {
 }
 function ssoInit() {
     if (!checkCookie('dingstudio_sso') && !checkCookie('dingstudio_ssotoken')) {
-        location.href = 'https://passport.dingstudio.cn/sso/login?returnUrl=' + encodeURIComponent(window.location.href);
+        location.href = 'https://passport.dingstudio.cn/sso/login?returnUrl=' + btoa(encodeURIComponent(window.location.href));
     }
 }
 function exitSSO() {
